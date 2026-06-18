@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2024 Developers' Summit — Reimagining Learning — Archived</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1B2A4A;
+      --gold:   #B8964E;
+      --cream:  #F7F6F3;
+      --gray:   #E4E2DC;
+      --mid:    #6B6860;
+      --text:   #1E1D1B;
+      --stripe: rgba(184,150,78,.12);
+    }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Archive banner ── */
+    .archive-banner {
+      background: var(--navy);
+      color: #fff;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .6rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .archive-banner .badge {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .archive-banner .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .archive-banner a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .archive-banner a:hover { text-decoration: underline; }
+
+    /* ── Page shell ── */
+    .page {
+      max-width: 780px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 2rem;
+    }
+
+    /* ── Eyebrow ── */
+    .eyebrow {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Headline ── */
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.18;
+      color: var(--navy);
+      margin-bottom: .5rem;
+    }
+    .subtitle {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+    }
+
+    /* ── Rule ── */
+    .rule {
+      border: none;
+      border-top: 2px solid var(--gold);
+      width: 48px;
+      margin-bottom: 1.4rem;
+    }
+
+    /* ── Byline block ── */
+    .byline {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .82rem;
+      color: var(--mid);
+      border-left: 3px solid var(--gray);
+      padding-left: 1rem;
+      margin-bottom: 2.8rem;
+      line-height: 1.7;
+    }
+    .byline strong { color: var(--navy); font-weight: 600; }
+    .byline .author-highlight {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 600;
+      font-size: .75rem;
+      letter-spacing: .06em;
+      padding: .15rem .5rem;
+      border-radius: 2px;
+      margin-left: .3rem;
+      vertical-align: middle;
+    }
+
+    /* ── Body copy ── */
+    .article-body p {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    /* ── Day headers ── */
+    .day-header {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 1px solid var(--gray);
+      padding-bottom: .5rem;
+      margin: 2.2rem 0 1.2rem;
+    }
+
+    /* ── Session cards ── */
+    .sessions {
+      display: grid;
+      gap: .8rem;
+      margin-bottom: 1.8rem;
+    }
+    .session-card {
+      background: #fff;
+      border: 1px solid var(--gray);
+      border-left: 4px solid var(--navy);
+      border-radius: 0 6px 6px 0;
+      padding: .9rem 1.2rem;
+    }
+    .session-card .session-title {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: .25rem;
+    }
+    .session-card .session-presenter {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .72rem;
+      color: var(--mid);
+    }
+
+    /* ── Pull quotes ── */
+    .pull-quote {
+      border-left: 4px solid var(--gold);
+      background: var(--stripe);
+      margin: 2.4rem 0;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 6px 6px 0;
+    }
+    .pull-quote p {
+      font-size: 1.05rem !important;
+      font-style: italic;
+      line-height: 1.65 !important;
+      margin-bottom: .6rem !important;
+      color: var(--navy) !important;
+    }
+    .pull-quote cite {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .72rem;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Source footer ── */
+    .source-footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .75rem;
+      color: var(--mid);
+      line-height: 1.8;
+    }
+    .source-footer strong { color: var(--navy); }
+    .source-footer a { color: var(--gold); text-decoration: none; }
+    .source-footer a:hover { text-decoration: underline; }
+
+    .stamp {
+      display: inline-block;
+      margin-top: 1.2rem;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .3rem .7rem;
+      border-radius: 3px;
+      opacity: .75;
+    }
+
+    @media (max-width: 600px) {
+      .page { margin-top: 2rem; padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="archive-banner">
+    <div class="badge">
+      <div class="dot"></div>
+      Personal Archive — Air Force Learning Professionals Article
+    </div>
+    <div>
+      <a href="https://www.learningprofessionals.af.mil/News/Article-Display/Article/3823770/2024-developers-summit-reimagining-learning-developing-solutions-with-creative/" target="_blank">learningprofessionals.af.mil</a>
+      &nbsp;·&nbsp;
+      DVIDS: <a href="https://www.dvidshub.net/portfolio/1804681/valerie-saenz" target="_blank">dvidshub.net/portfolio/1804681/valerie-saenz</a>
+    </div>
+  </div>
+
+  <main class="page">
+
+    <div class="eyebrow">Air Education and Training Command &nbsp;·&nbsp; July 3, 2024</div>
+
+    <h1>2024 Developers' Summit</h1>
+    <div class="subtitle">Reimagining Learning: Developing Solutions with Creative Approaches</div>
+
+    <hr class="rule" />
+
+    <div class="byline">
+      <strong>By Valerie Saenz</strong><span class="author-highlight">Author</span><br>
+      AETC/A3BP — AETC Learning Professionals and Force Development Credentials Branch<br>
+      Published on <em>Air Force Learning Professionals</em>
+    </div>
+
+    <div class="article-body">
+
+      <p>For the second consecutive year, instructional developers from across the Department of the Air Force attended the Developers' Summit, hosted by Air Education and Training Command's Learning Professionals and Force Development Credentials Division members, June 25–26 at Community Center on Joint Base San Antonio-Fort Sam Houston, Texas.</p>
+
+      <p>The event provided instructional developers a learning-focused summit where they come together to increase their knowledge and skills, while also building their professional network.</p>
+
+      <div class="pull-quote">
+        <p>"After receiving attendee feedback from last year, we knew we had to make this an annual event. Developers play a pivotal role in supplying training and education programs that develop essential skills as well as prepare personnel to think critically and are essential in driving the evolution of learning operations and change management. They must not only stay ahead of industry trends and advancements but also anticipate future challenges and opportunities. Their ability to leverage resources effectively ensures our learning initiatives are innovative, impactful, and capable of meeting the demands of today and tomorrow."</p>
+        <cite>Dana Horn — AETC Learning Professionals' Program Branch Chief</cite>
+      </div>
+
+      <p>About 100 military and civilian developers had the opportunity to learn from a varied group of presenters.</p>
+
+      <div class="day-header">Day 1 — June 25, 2024</div>
+      <div class="sessions">
+        <div class="session-card">
+          <div class="session-title">Presentation Productivity: Visual Storytelling and Interactive Content</div>
+          <div class="session-presenter">Hands-on workshop</div>
+        </div>
+        <div class="session-card">
+          <div class="session-title">The Optimal Training Day: Leveraging Biorhythms and Lifestyle Habits to Elevate Training Design and Instruction</div>
+          <div class="session-presenter">Workshop session</div>
+        </div>
+      </div>
+
+      <div class="day-header">Day 2 — June 26, 2024</div>
+      <div class="sessions">
+        <div class="session-card">
+          <div class="session-title">Smart Design: Aligning Multimedia with Learning Goals</div>
+          <div class="session-presenter">Dr. Karal Garcia — Chief Learning Officer, Special Warfare Training Group</div>
+        </div>
+        <div class="session-card">
+          <div class="session-title">NIPRGPT — Generative Artificial Intelligence to Enhance and Speed Up Workflow</div>
+          <div class="session-presenter">1st Lt. Nicholas Brooks — Air Force Material Command</div>
+        </div>
+      </div>
+
+      <p>Attendees applied what they learned and created a training product while attending the event.</p>
+
+      <div class="pull-quote">
+        <p>"Instructional design and development play a crucial role in shaping educational experiences. Those who craft curricula are the architects of effective teaching and learning frameworks. The work of instructional developers ensures learners receive well-structured, meaningful education and training, laying the foundation for their success."</p>
+        <cite>Col. Jason Turner — Deputy Director for Force Development</cite>
+      </div>
+
+      <div class="pull-quote">
+        <p>"This year's Developers' Summit was an incredible opportunity to network with other instructional system developers on topics unique to developers. I picked up a few new strategies and got to share with others some of our unique methods of designing the complete experience."</p>
+        <cite>Bradley Clark — Training Specialist Lead & LMS Administrator, Air Force Services Center</cite>
+      </div>
+
+      <div class="pull-quote">
+        <p>"The goal of the Developers' Summit is to enhance the capabilities of developers throughout the Department of the Air Force, so the outcome should be newly gained skills that developers can now share with their units to create better training for Airmen and Guardians."</p>
+        <cite>Dana Horn — AETC Learning Professionals' Program Branch Chief</cite>
+      </div>
+
+    </div>
+
+    <div class="source-footer">
+      <strong>Original source URL</strong><br>
+      <a href="https://www.learningprofessionals.af.mil/News/Article-Display/Article/3823770/2024-developers-summit-reimagining-learning-developing-solutions-with-creative/" target="_blank">https://www.learningprofessionals.af.mil/News/Article-Display/Article/3823770/</a><br><br>
+      <strong>DVIDS Storyteller Profile</strong><br>
+      <a href="https://www.dvidshub.net/portfolio/1804681/valerie-saenz" target="_blank">https://www.dvidshub.net/portfolio/1804681/valerie-saenz</a><br><br>
+      Article written by Valerie Saenz, AETC/A3BP. Content archived for personal portfolio reference. All rights belong to the Department of the Air Force.
+      <br>
+      <span class="stamp">Archived · June 2026</span>
+    </div>
+
+  </main>
+
+</body>
+</html>
